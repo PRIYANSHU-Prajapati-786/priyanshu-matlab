@@ -1,0 +1,31 @@
+clear all;
+    close all;
+    clc;
+    %%First row
+    xhex_b=[0 1 2 2 1 0]; % x-coordinates of the vertices
+     yhex=[1 0 1 2 3 2];% y-coordinates of the vertices
+  xhex_3=xhex_b;
+  xhex_7=xhex_b+2;
+xhex_1=xhex_b+4;
+xhex_4=xhex_b+6;
+ xhex_6=xhex_b+8;
+ xhex_5=xhex_b+10;
+  xhex_2=xhex_b+12;
+  a=[xhex_3;xhex_7;xhex_1;xhex_4;xhex_6;xhex_5;xhex_2];
+y=a;
+     for j1=1:10
+         j=j1-1;
+         hold on;
+
+      patch(y(1,[1 2 3 4 5 6])+mod(j,2),yhex+j*2,'blue')
+     
+    patch(y(2,[1 2 3 4 5 6])+mod(j,2),yhex+j*2,'green')
+    patch(y(3,[1 2 3 4 5 6])+mod(j,2),yhex+j*2,'yellow')
+      patch(y(4,[1 2 3 4 5 6])+mod(j,2),yhex+j*2,'red')
+         
+    patch(y(5,[1 2 3 4 5 6])+mod(j,2),yhex+j*2,'black')
+    patch(y(6,[1 2 3 4 5 6])+mod(j,2),yhex+j*2,'cyan')
+    patch(y(7,[1 2 3 4 5 6])+mod(j,2),yhex+j*2,'magenta')
+y= circshift(y,5-mod(j,2),1);
+  
+         end
